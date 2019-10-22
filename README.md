@@ -3,7 +3,7 @@ Poor man's VPN (tcp port forwardning only) into a kubernetes cluster / kubectl p
 
 * spins up a haproxy-pod in the current namespace (using `kubectl run ...`)
 * spins up a local docker port-forwarder to the haproxy-pod (1-n `kubectl port-forward` per container/service port)
-* edits /etc/localhost or ~/.hosts (HOSTALIASES format)
+* edits /etc/localhost (write access required, obv..) or ~/.hosts (HOSTALIASES format)
 
 ### Usage
 ```
