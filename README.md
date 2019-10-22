@@ -33,13 +33,13 @@ Examples:
 ### Additional examples
  
 ##### shell 1:
-`sudo env "PATH=$PATH" kfwd -y <myservice>` 
+`sudo env "PATH=$PATH" kfwd -y myservice my-other-kubernetes-service` 
 
 (env stuff not necessary if root has nodejs and kubectl configured)
 
 ##### shell 2:
-`curl my-kubernetes-service:<port1>`
+`curl my-kubernetes-service:1234`
 
-`curl my-kubernetes-service:<port2>`
+`curl my-kubernetes-service:8080`
 
 `curl my-other-kubernetes-service`
