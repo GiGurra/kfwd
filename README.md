@@ -39,5 +39,7 @@ Examples:
 
 ##### shell 2:
 `curl my-kubernetes-service:<port1>`
+
 `curl my-kubernetes-service:<port2>`
+
 `curl my-other-kubernetes-service`
