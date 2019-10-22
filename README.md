@@ -38,4 +38,6 @@ Examples:
 (env stuff not necessary if root has nodejs and kubectl configured)
 
 ##### shell 2:
-`curl my-kubernetes-service`
+`curl my-kubernetes-service:<port1>`
+`curl my-kubernetes-service:<port2>`
+`curl my-other-kubernetes-service`
