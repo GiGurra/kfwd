@@ -1,9 +1,11 @@
 # kfwd
-Poor man's VPN (tcp port forwardning only) into a kubernetes cluster / kubectl port-forward on steroids.
+Poor man's VPN (tcp port forwardning only) into a kubernetes cluster / kubectl port-forward on steroids. For something more complete, see https://www.telepresence.io/.
 
 * spins up a haproxy-pod in the current namespace (using `kubectl run ...`)
 * spins up a local docker port-forwarder to the haproxy-pod (1-n `kubectl port-forward` per container/service port)
 * edits /etc/localhost (write access required, obv..) or ~/.hosts (HOSTALIASES format)
+
+Voila - all applications and development tools on your computer can now access services inside the cluster. Use with caution.
 
 ### Usage
 ```
