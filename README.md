@@ -34,7 +34,8 @@ Examples:
  
 ##### shell 1:
 `sudo env "PATH=$PATH" kfwd -y <myservice>` 
+
 (env stuff not necessary if root has nodejs and kubectl configured)
 
-###### shell 2:
+##### shell 2:
 `curl my-kubernetes-service`
