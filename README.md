@@ -7,6 +7,8 @@ Poor man's VPN (tcp port forwardning only) into a kubernetes cluster / kubectl p
 
 et voila - all applications and development tools on your computer can now access services inside the cluster. Use with caution.
 
+Quick and dirty hack. Don't expect pretty code :).
+
 ### Usage
 ```
 ╰─>$ kfwd --help
