@@ -49,7 +49,7 @@ Examples:
 ### Platform compatibility
 
 * Tested only on ubuntu 18.04 and 16.04
-* May work with some tweaks on mac
+* May work with some tweaks on mac (untested)
 * Does NOT work on windows (needs tools like sed, expects to find /etc/hosts and a few other issues)
 
  
