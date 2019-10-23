@@ -1,11 +1,11 @@
 # kfwd
 Poor man's VPN (tcp port forwardning only) into a kubernetes cluster / kubectl port-forward on steroids. For something more advanced, see https://www.telepresence.io/.
 
-* spins up a haproxy-pod in the current namespace (using `kubectl run ...`)
+* spins up a haproxy-pod configured for tcp proxying inside the current namespace (using `kubectl run ...`)
 * spins up a local docker port-forwarder to the haproxy-pod (1-n `kubectl port-forward` per container/service port)
 * edits /etc/localhost (write access required, obv..) or ~/.hosts (HOSTALIASES format)
 
-Voila - all applications and development tools on your computer can now access services inside the cluster. Use with caution.
+et voila - all applications and development tools on your computer can now access services inside the cluster. Use with caution.
 
 ### Usage
 ```
@@ -26,10 +26,10 @@ Options:
                                                                        [boolean]
 
 Examples:
-  kfwd svc1 svc2      Starts kfwd in master mode, forwarding http requests made
-                      on this computer to to dns names 'svc1' and 'svc2' ->
-                      corresponding kubernetes cluster services. After this you
-                      can open a new shell and do `curl http://svc1[:some port]`
+  kfwd svc1 svc2      Starts kfwd, forwarding http requests made on this computer 
+                      to to dns names 'svc1' and 'svc2' -> corresponding kubernetes 
+                      cluster services. After this you can open a new shell and do 
+                      curl http://svc1[:some port]
 ```
 
 ### Additional examples
@@ -45,3 +45,16 @@ Examples:
 `curl my-service:8080`
 
 `curl my-other-service`
+
+### Platform compatibility
+
+* Tested only on ubuntu 18.04 and 16.04
+* May work with some tweaks on mac
+* Does NOT work on windows (needs tools like sed, expects to find /etc/hosts and a few other issues)
+
+ 
+## Warning
+
+Written in Node.js, which I am a beginner in. All advice on style and best practices very welcome!
+Expect things to break :S.
+
