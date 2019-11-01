@@ -8,10 +8,10 @@ async function main() {
     const cmdLine = parseCmdLine();
     switch (parseMode(cmdLine)) {
         case "use-homedir-hosts":
-            await master.run({ services: cmdLine.args, forceHomedirHosts: true });
+            await master.run({ services: cmdLine.args, forceHomedirHosts: true, namespace: cmdLine.namespace });
             break;
         case "use-etc-hosts":
-            await master.run({ services: cmdLine.args, forceEtcHosts: true });
+            await master.run({ services: cmdLine.args, forceEtcHosts: true, namespace: cmdLine.namespace });
             break;
         case "local":
             await local.run(JSON.parse(cmdLine.args[0]));
@@ -38,8 +38,13 @@ function parseCmdLine() {
                 description: 'Will not ask if to edit /etc/hosts or ~/.hosts. /etc/hosts is automatically selected',
                 type: 'boolean',
             })
-            .option('use-homedir-hosts', {
+            .option('namespace', {
                 alias: 'n',
+                description: 'Choose kubernetes namespaces instead of picking the current one',
+                type: 'string',
+            })
+            .option('use-homedir-hosts', {
+                alias: 'h',
                 description: 'Will not ask if to edit /etc/hosts or ~/.hosts. ~/.hosts is automatically selected',
                 type: 'boolean',
             })
@@ -48,6 +53,8 @@ function parseCmdLine() {
                 description: 'Local docker kfwd mode - should not be used by end users of kfwd. Intended for master internally.',
                 type: 'boolean',
             })
+            .help()
+            .strict()
     }).argv;
 }
 
