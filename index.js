@@ -29,6 +29,10 @@ function parseCmdLine() {
                 "Starts kfwd in master mode, forwarding http requests made on this computer to to dns names 'svc1' and 'svc2' -> corresponding kubernetes cluster services. " +
                 "After this you can open a new shell and do `curl http://svc1[:some port]` to talk to these services running in the cluster"
             )
+            .example("kfwd alias1=svc1 alias2=svc2    ",
+                "Starts kfwd in master mode, forwarding http requests made on this computer to to dns names 'alias1' and 'alias2' -> corresponding kubernetes cluster services svc1 and svc2. " +
+                "After this you can open a new shell and do `curl http://svc1[:some port]` to talk to these services running in the cluster"
+            )
             .option('use-etc-hosts', {
                 alias: 'y',
                 description: 'Will not ask if to edit /etc/hosts or ~/.hosts. /etc/hosts is automatically selected',
