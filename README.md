@@ -17,21 +17,34 @@ kfwd [options] <args...>
 forward dns names to cluster services
 
 Options:
-  --help                   Show help                                   [boolean]
   --version                Show version number                         [boolean]
   --use-etc-hosts, -y      Will not ask if to edit /etc/hosts or ~/.hosts.
                            /etc/hosts is automatically selected        [boolean]
-  --use-homedir-hosts, -n  Will not ask if to edit /etc/hosts or ~/.hosts.
+  --namespace, -n          Choose kubernetes namespaces instead of picking the
+                           current one                                  [string]
+  --use-homedir-hosts, -h  Will not ask if to edit /etc/hosts or ~/.hosts.
                            ~/.hosts is automatically selected          [boolean]
   --local, -l              Local docker kfwd mode - should not be used by end
                            users of kfwd. Intended for master internally.
                                                                        [boolean]
+  --help                   Show help                                   [boolean]
 
 Examples:
-  kfwd svc1 svc2      Starts kfwd, forwarding http requests made on this computer 
-                      to to dns names 'svc1' and 'svc2' -> corresponding kubernetes 
-                      cluster services. After this you can open a new shell and do 
-                      curl http://svc1[:some port]
+  kfwd svc1 svc2                    Starts kfwd in master mode, forwarding http
+                                    requests made on this computer to to dns
+                                    names 'svc1' and 'svc2' -> corresponding
+                                    kubernetes cluster services. After this you
+                                    can open a new shell and do `curl
+                                    http://svc1[:some port]` to talk to these
+                                    services running in the cluster
+  kfwd alias1=svc1 alias2=svc2      Starts kfwd in master mode, forwarding http
+                                    requests made on this computer to to dns
+                                    names 'alias1' and 'alias2' -> corresponding
+                                    kubernetes cluster services svc1 and svc2.
+                                    After this you can open a new shell and do
+                                    `curl http://svc1[:some port]` to talk to
+                                    these services running in the cluster
+
 ```
 
 ### Additional examples
