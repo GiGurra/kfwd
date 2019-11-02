@@ -1,6 +1,6 @@
 {
   "name": "kfwd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Poor man's vpn to kubernetes, kubectl port-forward on steroids, simple hack wannabe-Telepresence",
   "main": "index.js",
   "scripts": {
