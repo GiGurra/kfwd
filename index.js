@@ -8,10 +8,10 @@ async function main() {
     const cmdLine = parseCmdLine();
     switch (parseMode(cmdLine)) {
         case "use-homedir-hosts":
-            await master.run({ services: cmdLine.args, forceHomedirHosts: true, namespace: cmdLine.namespace });
+            await master.run({ services: cmdLine.args, forceHomedirHosts: true, useEtcResolv: cmdLine['mount-resolve-conf'], namespace: cmdLine.namespace });
             break;
         case "use-etc-hosts":
-            await master.run({ services: cmdLine.args, forceEtcHosts: true, namespace: cmdLine.namespace });
+            await master.run({ services: cmdLine.args, forceEtcHosts: true, useEtcResolv: cmdLine['mount-resolve-conf'], namespace: cmdLine.namespace });
             break;
         case "local":
             await local.run(JSON.parse(cmdLine.args[0]));
@@ -37,6 +37,12 @@ function parseCmdLine() {
                 alias: 'y',
                 description: 'Will not ask if to edit /etc/hosts or ~/.hosts. /etc/hosts is automatically selected',
                 type: 'boolean',
+            })
+            .option('mount-resolve-conf', {
+                alias: 'm',
+                description: 'Will mount /etc/resolve.conf into local proxy container',
+                type: 'boolean',
+                default: false
             })
             .option('namespace', {
                 alias: 'n',
