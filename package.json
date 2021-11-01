@@ -22,8 +22,8 @@
     "command-exists": "^1.2.8",
     "js-yaml": "^3.13.1",
     "readline-sync": "^1.4.10",
-    "table-parser": "^1.0.1",
+    "table-parser": "^1.0.0",
     "uuid": "^3.3.3",
-    "yargs": "^14.2.0"
+    "yargs": "^17.2.1"
   }
 }
